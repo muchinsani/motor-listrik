@@ -1,5 +1,5 @@
 import { PRODUCTS, STORAGE_KEY, formatRupiah, simulate, storeApplication, readApplications } from './model.mjs';
-
+//test
 const form = document.querySelector('#simulation-form');
 const motorSelect = document.querySelector('#motor-select');
 const formError = document.querySelector('#form-error');
