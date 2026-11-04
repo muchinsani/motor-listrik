@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#214e3b">
+  <meta name="description" content="Demo sederhana kepemilikan motor listrik untuk individu dan bisnis. Jelajahi motor dan coba simulasi biaya.">
+  <title>Lintas — Motor listrik untuk setiap perjalanan</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/styles.css">
+  <script type="module" src="/app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#katalog">Langsung ke katalog</a>
+  <header class="header">
+    <a href="#" class="brand" aria-label="Lintas, beranda"><span class="brand-icon" aria-hidden="true">ϟ</span>lintas<span class="brand-dot">.</span></a>
+    <nav aria-label="Navigasi utama"><a href="#katalog">Pilihan motor</a><a href="#simulasi">Simulasi biaya</a><a href="#pengajuan" class="nav-orders">Pengajuan saya <span id="order-count">0</span></a></nav>
+    <span class="demo-badge"><span></span> Mode demo</span>
+  </header>
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="tiny-line"></span> LANGKAH KECIL, PERUBAHAN BESAR</p>
+        <h1 id="hero-title">Perjalanan baru.<br><span>Energi baru.</span></h1>
+        <p class="hero-description">Motor listrik untuk keseharian Anda dan<br class="desktop-break"> pertumbuhan bisnis. Mulai dari pilihan yang tepat.</p>
+        <a class="button primary" href="#katalog">Temukan motor Anda <span aria-hidden="true">↗</span></a>
+        <div class="hero-note"><span aria-hidden="true">✓</span> Pilihan tunai & cicilan <span class="note-separator">/</span> Individu & bisnis</div>
+      </div>
+      <div class="hero-art">
+        <span class="orbit orbit-one"></span><span class="orbit orbit-two"></span>
+        <div class="art-caption"><span class="caption-dot"></span> SIAP UNTUK HARI ESOK</div>
+        <img class="hero-motor" src="/motor.svg" width="760" height="480" alt="Ilustrasi skuter listrik berwarna hijau">
+        <div class="art-bottom"><span>100% listrik.<br>100% langkah Anda.</span><span class="art-number">01 / 03</span></div>
+      </div>
+    </section>
+    <div class="benefits" aria-label="Keunggulan demo"><span><span class="benefit-icon" aria-hidden="true">ϟ</span> Pilihan mobilitas listrik</span><span><span class="benefit-icon" aria-hidden="true">◇</span> Rincian biaya transparan</span><span><span class="benefit-icon" aria-hidden="true">↗</span> Satu unit atau satu armada</span></div>
+    <section class="section catalog-section" id="katalog" aria-labelledby="catalog-title">
+      <div class="section-heading"><div><p class="eyebrow">PILIH TEMAN PERJALANAN</p><h2 id="catalog-title">Ada motor untuk setiap rencana.</h2></div><span class="section-aside">3 model ilustratif</span></div>
+      <div id="product-grid" class="product-grid"></div>
+      <p class="catalog-note">Model, harga, dan spesifikasi di halaman ini adalah contoh, bukan produk atau penawaran nyata. Baterai termasuk dalam harga ilustratif.</p>
+    </section>
+    <section class="section simulator-section" id="simulasi" aria-labelledby="simulator-title">
+      <div class="simulator-intro"><p class="eyebrow">RENCANAKAN DENGAN TENANG</p><h2 id="simulator-title">Pilihan Anda.<br>Hitungan yang jelas.</h2><p>Coba skenario yang paling sesuai.<br>Tanpa komitmen, tanpa data pribadi.</p><div class="how-it-works"><span>01</span><p>Pilih motor dan kebutuhan</p><span>02</span><p>Lihat rincian simulasi</p><span>03</span><p>Simpan pengajuan demo</p></div><div class="ownership-note"><span aria-hidden="true">◇</span><p><strong>Ketentuan contoh</strong>Harga mencakup motor dan baterai. Tidak ada langganan baterai. Kepemilikan nyata mengikuti kontrak penjual dan mitra pembiayaan.</p></div></div>
+      <form id="simulation-form" class="simulation-card">
+        <div class="card-heading"><h3>Simulasi kepemilikan</h3><span class="small-badge">ILUSTRASI</span></div>
+        <fieldset><legend>Kebutuhan Anda</legend><div class="segmented"><label><input type="radio" name="customer" value="individu" checked><span>Individu</span></label><label><input type="radio" name="customer" value="bisnis"><span>Bisnis</span></label></div></fieldset>
+        <div class="form-row"><div class="field motor-field"><label for="motor-select">Pilihan motor</label><select id="motor-select" name="productId" required></select></div><div class="field quantity-field"><label for="quantity">Jumlah unit</label><input id="quantity" name="quantity" type="number" min="1" max="100" step="1" value="1" required inputmode="numeric" aria-describedby="quantity-hint"></div></div>
+        <p id="quantity-hint" class="field-hint">1–100 unit. Untuk bisnis, biaya dihitung untuk seluruh armada.</p>
+        <fieldset><legend>Metode pembayaran</legend><div class="segmented"><label><input type="radio" name="payment" value="cicilan" checked><span>Cicilan</span></label><label><input type="radio" name="payment" value="tunai"><span>Tunai</span></label></div></fieldset>
+        <div id="financing-fields" class="form-row"><div class="field"><label for="down-percent">Uang muka</label><select id="down-percent" name="downPercent"><option value="20">20%</option><option value="30" selected>30%</option><option value="40">40%</option><option value="50">50%</option></select></div><div class="field"><label for="months">Tenor cicilan</label><select id="months" name="months"><option value="12">12 bulan</option><option value="24" selected>24 bulan</option><option value="36">36 bulan</option></select></div></div>
+        <div id="quote" class="quote" aria-live="polite" aria-atomic="true"><span class="quote-label" id="quote-label">Estimasi cicilan / bulan</span><div class="quote-main"><strong id="quote-main">—</strong><span id="quote-unit">untuk 1 unit</span></div><p id="per-unit-cost" class="per-unit-cost"></p><div class="quote-breakdown"><div><span>Harga kendaraan</span><strong id="base-total">—</strong></div><div id="down-row"><span>Uang muka total</span><strong id="down-total">—</strong></div><div id="interest-row"><span>Bunga & pembulatan</span><strong id="interest-total">—</strong></div><div class="total-row"><span>Total pembayaran</span><strong id="payment-total">—</strong></div></div></div>
+        <p id="simulation-disclaimer" class="disclaimer">Ilustrasi bunga flat 8% per tahun, dibulatkan ke rupiah. Belum termasuk administrasi, asuransi, dan biaya pengiriman. Bukan penawaran atau persetujuan pembiayaan.</p>
+        <label class="consent"><input id="consent" type="checkbox" required><span>Saya memahami ini hanya demo dan tidak mengirim pengajuan kepada penjual atau mitra.</span></label>
+        <p id="form-error" class="error-message" role="alert" hidden></p>
+        <button id="submit-button" class="button primary submit-button" type="submit">Simpan pengajuan demo <span aria-hidden="true">↗</span></button>
+        <p class="privacy-note">Tersimpan hanya di browser ini. Tidak ada pembayaran.</p>
+      </form>
+    </section>
+    <section class="section orders-section" id="pengajuan" aria-labelledby="orders-title"><div class="section-heading"><div><p class="eyebrow">LANGKAH ANDA BERIKUTNYA</p><h2 id="orders-title">Pengajuan saya</h2></div><span class="section-aside">Lokal · tanpa data pribadi</span></div><p id="storage-error" class="error-message" role="alert" hidden></p><div id="orders-list" class="orders-list"></div></section>
+    <section class="support-strip"><div><span class="support-icon" aria-hidden="true">◇</span><div><h3>Perjalanan tidak berhenti di pembelian.</h3><p>Informasi servis, garansi, dan kontak bantuan mengikuti penjual pilihan Anda.</p></div></div><span class="small-badge">LAYANAN NYATA BELUM TERHUBUNG</span></section>
+  </main>
+  <footer><a class="brand" href="#" aria-label="Lintas, kembali ke atas">lintas<span class="brand-dot">.</span></a><p>Untuk perjalanan yang lebih baik.</p><span>Prototipe motor listrik · Bukan layanan transaksi</span></footer>
+  <dialog id="success-dialog" aria-labelledby="success-title" aria-describedby="success-description"><div class="success-icon" aria-hidden="true">✓</div><p class="eyebrow">LANGKAH PERTAMA TERSIMPAN</p><h2 id="success-title">Rencana baru, siap.</h2><p id="success-description">Pengajuan demo tersimpan di browser ini. Belum dikirim ke penjual dan belum disetujui.</p><p id="success-reference" class="success-reference"></p><button id="close-dialog" class="button primary" type="button">Lihat pengajuan saya <span aria-hidden="true">→</span></button></dialog>
+  <noscript><p class="error-message">Aktifkan JavaScript untuk menggunakan katalog dan simulasi.</p></noscript>
+</body>
+</html>
